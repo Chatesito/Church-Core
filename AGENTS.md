@@ -15,6 +15,7 @@ The goal is to create a single codebase that allows customizing styles (colors, 
 - **SRP (Single Responsibility):** Each component does ONE thing. Strict separation of UI and Logic.
 - **ISP (Interface Segregation):** The AI MUST NOT read all manuals at once. It must consult the Skills table (below) to load only the necessary context.
 - **Avoid Immediacy:** Prioritize clean, strictly typed, and scalable code over quick fixes. Do not hardcode colors or liturgical texts.
+- **Git Protocol:** DO NOT create commits or push changes unless explicitly requested by the user. Always ask for permission first.
 
 ## 4. Skills Routing Table (Context Routing)
 ⚠️ **AI INSTRUCTION:** DO NOT load all context into memory at once. Use this table to know which folder to read in `docs/skills/` based on the task you are executing.

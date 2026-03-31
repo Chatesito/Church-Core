@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@theme {
+  /* Dynamic Palette (White-label / Multi-tenant) */
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-surface: var(--surface);
+
+  /* Typography tokens */
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: Georgia, ui-serif, serif;
+}
+
+@layer base {
+  :root {
+    /* Default tenant: San Juan Maria Vianney */
+    --primary: #ffd700;   /* Gold */
+    --secondary: #000000; /* Black */
+    --accent: #f3f4f6;    /* Light gray */
+    --surface: #ffffff;   /* White */
+  }
+
+  body {
+    background-color: var(--surface);
+    color: var(--secondary);
+    font-family: var(--font-sans);
+  }
+}
