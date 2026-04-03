@@ -3,7 +3,9 @@
 @theme {
   /* Dynamic Palette (White-label / Multi-tenant) */
   --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
   --color-accent: var(--accent);
   --color-surface: var(--surface);
 
@@ -16,7 +18,9 @@
   :root {
     /* Default tenant: San Juan Maria Vianney */
     --primary: #ffd700;   /* Gold */
+    --primary-foreground: #000000; /* Black text on gold */
     --secondary: #000000; /* Black */
+    --secondary-foreground: #ffffff; /* White text on black */
     --accent: #f3f4f6;    /* Light gray */
     --surface: #ffffff;   /* White */
   }

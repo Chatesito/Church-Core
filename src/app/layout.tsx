@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { TopBar, Navbar, Footer } from "@/widgets";
+import { navItemsMock } from "@/widgets/navbar";
+import { mockTopBarData } from "@/widgets/top-bar";
+import { footerMock } from "@/widgets/footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,11 +27,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="es">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <TopBar {...mockTopBarData} />
+        <Navbar 
+          churchName="Parroquia San Juan María Vianney"
+          items={navItemsMock}
+        />
+        <main>{children}</main>
+        <Footer {...footerMock} />
       </body>
     </html>
   );
