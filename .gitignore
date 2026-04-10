@@ -24,6 +24,13 @@
 .DS_Store
 *.pem
 
+# agent configuration (local AI instructions, not for version control)
+AGENTS.md
+.atl/
+
+# documentation (reference materials, not production code)
+/docs/
+
 # debug
 npm-debug.log*
 yarn-debug.log*
