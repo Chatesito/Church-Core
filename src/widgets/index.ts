@@ -15,3 +15,6 @@ export type { HomeSectionData, Slide, ContactInfo, Schedule } from './home-secti
 // Footer Widget
 export { Footer } from './footer';
 export type { FooterData, SocialLink } from './footer';
+
+// Daily Readings Book Widget
+export * from './daily-readings-book';

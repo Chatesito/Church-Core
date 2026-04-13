@@ -48,19 +48,19 @@ export function Footer({ churchName, tagline, contact, socials, copyright, lives
   };
 
   return (
-    <footer className="bg-primary text-primary-foreground">
+    <footer className="bg-primary text-[var(--text-secondary)]">
       <div className="max-w-7xl mx-auto px-4 py-12">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* About Section */}
           <div>
             <h3 className="text-2xl mb-4 font-bold">{churchName}</h3>
-            <p className="text-primary/60">{tagline}</p>
+            <p className="text-[color:var(--text-secondary)]/80">{tagline}</p>
           </div>
 
           {/* Contact Information */}
           <div>
             <h4 className="text-xl mb-4 font-semibold">Contacto</h4>
-            <div className="space-y-3 text-primary/60">
+            <div className="space-y-3 text-[color:var(--text-secondary)]/80">
               <div className="flex items-start gap-2">
                 <MapPin className="w-5 h-5 flex-shrink-0 mt-0.5" />
                 <span>{contact.address}</span>
@@ -86,7 +86,7 @@ export function Footer({ churchName, tagline, contact, socials, copyright, lives
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-primary/80 hover:bg-primary/60 p-3 rounded-full transition-colors"
+                  className="bg-black/10 hover:bg-black/20 p-3 rounded-full transition-colors"
                   aria-label={getSocialLabel(social.platform)}
                 >
                   {getSocialIcon(social.platform)}
@@ -94,7 +94,7 @@ export function Footer({ churchName, tagline, contact, socials, copyright, lives
               ))}
             </div>
             {livestreamNote && (
-              <div className="mt-6 text-primary/60 text-sm">
+              <div className="mt-6 text-[color:var(--text-secondary)]/80 text-sm">
                 <p>{livestreamNote}</p>
               </div>
             )}
@@ -102,7 +102,7 @@ export function Footer({ churchName, tagline, contact, socials, copyright, lives
         </div>
 
         {/* Copyright */}
-        <div className="border-t border-primary/20 pt-8 text-center text-primary/60">
+        <div className="border-t border-black/15 pt-8 text-center text-[color:var(--text-secondary)]/80">
           <p>{copyright}</p>
         </div>
       </div>

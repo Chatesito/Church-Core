@@ -22,7 +22,7 @@
  * ```
  */
 
-// Liturgical Reading entity
+// Liturgical Reading metadata entity
 export type {
   LiturgicalReading,
   LiturgicalReadingCreate,
@@ -30,6 +30,14 @@ export type {
   LiturgicalSeason as LiturgicalSeasonType,
   LiturgicalColor
 } from './model/liturgical-reading.types';
+
+// Individual Reading text entity
+export type {
+  Reading,
+  ReadingType,
+  ReadingCreate,
+  ReadingUpdate
+} from './model/reading.types';
 
 // Saint of the Day entity
 export type {

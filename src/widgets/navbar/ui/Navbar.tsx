@@ -1,23 +1,69 @@
 'use client';
 
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { ChevronDown, Menu, X } from 'lucide-react';
 import type { NavbarProps, NavItem } from '../model/types';
 
-export function Navbar({ churchName, items, currentPath = '/' }: NavbarProps) {
+export function Navbar({ churchName, items, currentPath }: NavbarProps) {
+  const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+
+  const resolvedItems = useMemo<NavItem[]>(() => {
+    const hasReadingsLink = items.some((item) => item.href === '/lecturas');
+    if (hasReadingsLink) {
+      return items;
+    }
+
+    return [
+      ...items,
+      {
+        id: 'readings',
+        label: 'Lecturas',
+        href: '/lecturas',
+      },
+    ];
+  }, [items]);
 
   const handleNavClick = () => {
     setIsMobileMenuOpen(false);
     setActiveDropdown(null);
   };
 
+  const effectivePath = currentPath ?? pathname;
+
+  const normalizePath = (path: string): string => {
+    if (path === '/') {
+      return path;
+    }
+
+    return path.endsWith('/') ? path.slice(0, -1) : path;
+  };
+
+  const isHrefActive = (href?: string): boolean => {
+    if (!href) {
+      return false;
+    }
+
+    const normalizedCurrentPath = normalizePath(effectivePath);
+    const normalizedHref = normalizePath(href);
+
+    if (normalizedHref === '/') {
+      return normalizedCurrentPath === '/';
+    }
+
+    return (
+      normalizedCurrentPath === normalizedHref ||
+      normalizedCurrentPath.startsWith(`${normalizedHref}/`)
+    );
+  };
+
   const isActive = (item: NavItem): boolean => {
-    if (item.href === currentPath) return true;
+    if (isHrefActive(item.href)) return true;
     if (item.children) {
-      return item.children.some((child) => child.href === currentPath);
+      return item.children.some((child) => isHrefActive(child.href));
     }
     return false;
   };
@@ -42,7 +88,7 @@ export function Navbar({ churchName, items, currentPath = '/' }: NavbarProps) {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-6">
-            {items.map((item) => {
+            {resolvedItems.map((item) => {
               const active = isActive(item);
               const hasChildren = item.children && item.children.length > 0;
 
@@ -116,7 +162,7 @@ export function Navbar({ churchName, items, currentPath = '/' }: NavbarProps) {
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <div className="md:hidden py-4 border-t border-secondary/20">
-            {items.map((item) => {
+            {resolvedItems.map((item) => {
               const hasChildren = item.children && item.children.length > 0;
 
               if (hasChildren) {

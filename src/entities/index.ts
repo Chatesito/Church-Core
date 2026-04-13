@@ -51,12 +51,17 @@ export type {
 // Liturgy Domain (Global - shared across all tenants)
 // ============================================================================
 export type {
-  // Readings
+  // Readings metadata
   LiturgicalReading,
   LiturgicalReadingCreate,
   LiturgicalReadingUpdate,
   LiturgicalSeasonType, // Type alias for season name strings
   LiturgicalColor,
+  // Individual reading texts
+  Reading,
+  ReadingType,
+  ReadingCreate,
+  ReadingUpdate,
   // Saints
   SaintOfTheDay,
   FeastType,

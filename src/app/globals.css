@@ -20,9 +20,19 @@
     --primary: #ffd700;   /* Gold */
     --primary-foreground: #000000; /* Black text on gold */
     --secondary: #000000; /* Black */
+    --text-secondary: #6b7280;
     --secondary-foreground: #ffffff; /* White text on black */
     --accent: #f3f4f6;    /* Light gray */
     --surface: #ffffff;   /* White */
+
+    /* Book theme for daily readings */
+    --book-page-bg: #fefef8;
+    --book-text: #1a1a1a;
+    --book-muted: #6b7280;
+    --book-divider: #d1d5db;
+    --book-button-bg: #1e40af;
+    --book-button-text: #ffffff;
+    --book-shadow: rgba(0, 0, 0, 0.1);
   }
 
   body {

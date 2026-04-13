@@ -13,7 +13,7 @@ export const navItemsMock: NavItem[] = [
   },
   {
     id: 'readings',
-    label: 'Lecturas del Día',
+    label: 'Lecturas',
     href: '/lecturas',
   },
   {
