@@ -29,3 +29,6 @@ export type {
   DayOfWeek,
   ActivityType
 } from './model/parish-life-activity.types';
+
+// Events UI components
+export { EventCard, type EventCardProps, EventSkeleton, type EventSkeletonProps } from './ui';

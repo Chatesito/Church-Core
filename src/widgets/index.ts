@@ -18,3 +18,6 @@ export type { FooterData, SocialLink } from './footer';
 
 // Daily Readings Book Widget
 export * from './daily-readings-book';
+
+// Events Section Widget
+export { EventsSection, EventsGrid, type EventsGridProps } from './events-section';
