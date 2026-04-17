@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import {
+  getAccessibleContrastColor,
+  type CustomCSSProperties,
+} from "@/shared/lib/colors/contrast";
 import { TopBar, Navbar, Footer } from "@/widgets";
 import { navItemsMock } from "@/widgets/navbar";
 import { mockTopBarData } from "@/widgets/top-bar";
@@ -26,8 +30,29 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const tenantTheme = {
+    primary_color: "#D4AF37",
+    secondary_color: "#1A1A1A",
+    accent_color: "#FFD700",
+  } as const;
+
+  const tenantStyles: CustomCSSProperties = {
+    "--color-primary": tenantTheme.primary_color,
+    "--color-primary-foreground": getAccessibleContrastColor(
+      tenantTheme.primary_color,
+    ),
+    "--color-secondary": tenantTheme.secondary_color,
+    "--color-secondary-foreground": getAccessibleContrastColor(
+      tenantTheme.secondary_color,
+    ),
+    "--color-accent": tenantTheme.accent_color,
+    "--color-accent-foreground": getAccessibleContrastColor(
+      tenantTheme.accent_color,
+    ),
+  };
+
   return (
-    <html lang="es">
+    <html lang="es" style={tenantStyles}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
